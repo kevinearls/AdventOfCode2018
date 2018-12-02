@@ -45,6 +45,19 @@ public class InventoryManagementTest {
         int result = im.calculateCheckSum(part1Input);
         System.out.println("GOT: " + result);
         assertEquals(3952, result);
+    }
 
+    @Test
+    public void testPart2WithExampleData() throws Exception {
+        List<String> part1Input = im.loadFromFile("part2ExampleInput.txt");
+        String commonLetters = im.differByOne(part1Input);
+        assertEquals("fgij", commonLetters);
+    }
+
+    @Test
+    public void testPart2() throws Exception {
+        List<String> part1Input = im.loadFromFile("part1input.txt");
+        String commonLetters = im.differByOne(part1Input);
+        assertEquals("vtnikorkulbfejvyznqgdxpaw", commonLetters);
     }
 }
