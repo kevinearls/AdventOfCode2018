@@ -2,8 +2,6 @@ package com.kevinearls.adventofcode2018.fabric;
 
 import java.util.List;
 
-import com.kevinearls.adventofcode2018.common.Utils;
-
 public class FabricSlices {
     private Integer gridSize =0;
 
@@ -19,29 +17,12 @@ public class FabricSlices {
             }
         }
 
-        //List<String> input = Utils.loadFromFile("part1ExampleInput.txt");
         for (String line : input) {
-            // IN a line like "#1277 @ 651,49: 14x14" get rid of characters we don't need
-            line = line.replace("#", "");
-            line = line.replace(":", "");
-            line = line.replace("@", "");
-
-            String[] parts = line.split("\\s+");
-            String id = parts[0];
-            String[] coordinates = parts[1].split(",");
-            int startRow = Integer.valueOf(coordinates[0]);
-            int startColumn = Integer.valueOf(coordinates[1]);
-
-            String[] limits = parts[2].split("x");
-            int rows = Integer.valueOf(limits[0]);
-            int columns = Integer.valueOf(limits[1]);
-
-            //System.out.println(id + ": " + startRow + ", " + startColumn + ": " + rows + " X " + columns);
-
-            for (int row = startRow; row < startRow + rows; row++) {
-                for (int column = startColumn; column < startColumn + columns; column++) {
+            Claim claim = new Claim(line);
+            for (int row = claim.startRow; row < claim.startRow + claim.rows; row++) {
+                for (int column = claim.startColumn; column < claim.startColumn + claim.columns; column++) {
                     if (grid[row][column].equals("0")) {
-                        grid[row][column] = id;
+                        grid[row][column] = claim.id;
                     } else {
                         grid[row][column] = "X";
                     }
@@ -52,7 +33,6 @@ public class FabricSlices {
         int overlaps = 0;
         for (int row = 0; row < gridSize; row++) {
             for (int column = 0 ; column < gridSize; column++) {
-                //System.out.print(grid[row][column] + " ");
                 if (grid[row][column].equals("X")) {
                     overlaps++;
                 }
