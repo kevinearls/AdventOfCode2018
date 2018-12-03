@@ -11,6 +11,7 @@
         <module>chronal-calibration-day1</module>
         <module>inventory-management-day2</module>
         <module>common</module>
+        <module>fabric-slices</module>
     </modules>
     <packaging>pom</packaging>
 

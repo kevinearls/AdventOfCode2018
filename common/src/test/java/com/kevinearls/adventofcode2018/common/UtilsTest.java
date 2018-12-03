@@ -10,7 +10,7 @@ public class UtilsTest {
     @Test
     public void testUtilsLoadFile() throws Exception{
         List<String> entries = Utils.loadFromFile("fud.txt");
-        assertEquals(3, entries.size())
+        assertEquals(3, entries.size());
     }
 
 }
