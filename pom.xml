@@ -12,6 +12,7 @@
         <module>inventory-management-day2</module>
         <module>common</module>
         <module>fabric-slices</module>
+        <module>repose-record-day4</module>
     </modules>
     <packaging>pom</packaging>
 
