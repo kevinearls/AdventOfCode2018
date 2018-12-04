@@ -25,4 +25,22 @@ public class ReposeTest {
         int result = repose.strategyOne();
         assertEquals(76357, result);
     }
+
+    @Test
+    public void testPart2WithExampleData() throws Exception {
+        List<String> input = Utils.loadFromFile("part1ExampleInput.txt");
+        Repose repose = new Repose();
+        repose.loadGuards(input);
+        int result = repose.strategyTwo();
+        assertEquals(4455, result);
+    }
+
+    @Test
+    public void testPart2() throws Exception {
+        List<String> input = Utils.loadFromFile("part1InputSorted.txt");
+        Repose repose = new Repose();
+        repose.loadGuards(input);
+        int result = repose.strategyTwo();
+        assertEquals(41668, result);
+    }
 }

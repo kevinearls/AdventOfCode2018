@@ -56,9 +56,34 @@ public class Guard {
         return highest;
     }
 
+    /**
+     * Added for part 2.  How many times was this guard asleep during the minute where he slept the most
+     * @return
+     */
+    public int getMostSleptMinuteValue() {
+        int[] blah = new int[60];
+        for (String date : sleepRecord.keySet()) {
+            List<String> minutes = sleepRecord.get(date);
+            for (int i = 0; i < 60; i++) {
+                if (minutes.get(i).equals("#")) {
+                    blah[i]++;
+                }
+            }
+        }
+
+        int highest = 0;
+        for (int i=1; i < 60; i++) {
+            if (blah[i] > blah[highest]) {
+                highest = i;
+            }
+        }
+
+        return blah[highest];
+    }
+
+
     // guard.record(date, startMinute, endMinute);
     public void record(String date, Integer startMinute, Integer endMinute) {
-        // System.out.println("Guard " + id + " record called with date " + date + " start " + startMinute + " end " + endMinute);
         List<String> minutes;
         if (sleepRecord.containsKey(date)) {
             minutes = sleepRecord.get(date);

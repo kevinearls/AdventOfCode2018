@@ -57,5 +57,24 @@ public class Repose {
         int result = minute * Integer.valueOf(sleepiestGuard.getId());
         return result;
     }
+
+    public int strategyTwo() {
+        Guard targetGuard = new Guard("");
+
+        Integer mostSleptMinute = Integer.MIN_VALUE;
+        Integer mostSleptValue = Integer.MIN_VALUE;
+        for (String guardId : guards.keySet()) {
+            Guard guard = guards.get(guardId);
+            Integer fud = guard.getMostSleptMinuteValue();
+            if (fud > mostSleptValue) {
+                mostSleptValue = fud;
+                targetGuard = guard;
+            }
+        }
+
+        int minute = targetGuard.getMostSleptMinute();
+        int result = minute * Integer.valueOf(targetGuard.getId());
+        return result;
+    }
 }
 
