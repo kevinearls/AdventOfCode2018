@@ -13,6 +13,7 @@
         <module>common</module>
         <module>fabric-slices</module>
         <module>repose-record-day4</module>
+        <module>alchemical-reduction-day5</module>
     </modules>
     <packaging>pom</packaging>
 
