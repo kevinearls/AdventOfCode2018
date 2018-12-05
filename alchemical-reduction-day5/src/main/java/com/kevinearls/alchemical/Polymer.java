@@ -7,7 +7,7 @@ import java.util.List;
 public class Polymer {
     public int react(String input) {
         List<String> content = new LinkedList<>(Arrays.asList(input.split("")));
-        System.out.println("Size " + content.size());
+//        System.out.println("Size " + content.size());
 
         int position = 0;
         String current = "";
@@ -30,5 +30,25 @@ public class Polymer {
         }
 
         return content.size();
+    }
+
+    // For part 2
+    public int improvedReact(String input) {
+        int shortestLength = Integer.MAX_VALUE;
+        String shortestLetter;
+
+        for (char c = 'a'; c <= 'z'; c++ ) {
+            //System.out.println(c);
+            String target = "[" + c + String.valueOf(c).toUpperCase() + "]";
+            //System.out.println(target);
+            String strippedInput = input.replaceAll(target, "");
+            int length = react(strippedInput);
+            if (length < shortestLength) {
+                shortestLength = length;
+                shortestLetter = String.valueOf(c);
+            }
+        }
+
+        return shortestLength;
     }
 }

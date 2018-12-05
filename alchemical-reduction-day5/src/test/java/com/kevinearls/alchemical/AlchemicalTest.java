@@ -29,4 +29,23 @@ public class AlchemicalTest {
         assertEquals(11540, result);
     }
 
+    @Test
+    public void testPart2WithExampleData() {
+        String input = "dabAcCaCBAcCcaDA";
+        Polymer polymer = new Polymer();
+        int result = polymer.improvedReact(input);
+        System.out.println("result " + result);
+        assertEquals(4, result);
+    }
+
+    @Test
+    public void testPart2() throws Exception {
+        List<String> input = Utils.loadFromFile("part1Input.txt");
+        assertEquals(1, input.size());
+        Polymer polymer = new Polymer();
+        int result = polymer.improvedReact(input.get(0));
+        System.out.println("result " + result);
+        assertEquals(6918, result);
+    }
+
 }
