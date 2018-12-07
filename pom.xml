@@ -14,6 +14,8 @@
         <module>fabric-slices</module>
         <module>repose-record-day4</module>
         <module>alchemical-reduction-day5</module>
+        <module>coordinates-day6</module>
+        <module>sum-of-parts-day7</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -53,6 +55,11 @@
                 <groupId>org.junit.platform</groupId>
                 <artifactId>junit-platform-launcher</artifactId>
                 <version>${junit.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kevinearls</groupId>
+                <artifactId>common</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
             <!--dependency>
                 <groupId>org.slf4j</groupId>
